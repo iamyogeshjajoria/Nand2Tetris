@@ -10,3 +10,40 @@
 // R0 >= 0, R1 >= 0, and R0*R1 < 32768.
 
 // Put your code here.
+
+// pseudo-code
+// r2 = 0
+// for (i=0; i<R1; i++){
+//      R2 += R0
+// }
+
+@0
+D=A
+@R2
+M=D
+
+
+(LOOP)
+    @R1
+    D=M
+    @R2
+    M=M+D
+    @1
+    D=A
+    @R0
+    M=M-D
+
+
+    @R0
+    D=M
+    @END
+    D;JLE
+
+@LOOP
+0;JMP
+
+(END)
+0;JMP
+
+
+

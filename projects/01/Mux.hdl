@@ -9,36 +9,10 @@
  *       b otherwise
  */
 
- /*
-    yogesh adds
-    if(sel==0){
-        out = a;
-    }else{
-        out = b;
-    }
- */
-
 CHIP Mux {
     IN a, b, sel;
     OUT out;
 
     PARTS:
-    Not(in=a, out=notA);
-    Not(in=b, out=notB);
-    Not(in=sel, out=notSel);
-    //1st
-    And(a=notA, b=b, out=notAAndB);
-    And(a=notAAndB, b=sel, out=notAAndBAndSel);
-    //2nd
-    And(a=a, b=notB, out=aAndNotB);
-    And(a=aAndNotB, b=notSel, out=aAndNotBAndSel);
-    //3rd
-    And(a=a, b=b, out=aAndB);
-    And(a=aAndB, b=notSel, out=aAndBAndNotSel);
-    //4th
-    And(a=aAndB, b=sel, out=aAndBAndSel);    
-    //Or combination
-    Or(a=notAAndBAndSel, b=aAndNotBAndSel, out=x);
-    Or(a=aAndBAndNotSel, b=aAndBAndSel, out=y);
-    Or(a=x, b=y, out=out);
+    // Put your code here:
 }

@@ -13,37 +13,19 @@
 
 // Put your code here.
 
-//  while true:
-//    if keycode != 0:
-//          fillScreen(black)
-//    else:
-//            fillScreen(white)
-
-// (fill black)
-// for r_i in range(kbd, kbd+8000):
-//      r_i = -1
-//   
-@RST
-0, JMP
-
 (RST)
-    @SCREEN
-    D=A
-    @R2
-    M=D
-
-    @LOOP
-    0;JMP
+	@SCREEN
+	D=A
+	@R2
+	M=D
 
 (LOOP)
 	@KBD
 	D=M	//Load keyboard input
+	
 	@DARK
-	D;JGT	//Jump to DARK if kbd_register > 0;
+	D;JGT	//Jump to DARK if key is pressed
 
-    @LOOP
-    0;JMP
-    
 (LIGHT)
 	@R2	
 	A=M
@@ -54,6 +36,7 @@
 
 	@KBD
 	D=M	//Load keyboard input
+
 	@RST
 	D;JGT	//If input has changed, start over
 
@@ -75,4 +58,5 @@
 	D;JEQ
 
 	@DARK
-    0;JMP
+	0;JMP
+
